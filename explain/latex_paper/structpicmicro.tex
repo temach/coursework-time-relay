@@ -1,0 +1,69 @@
+\subsection{Структура picmicro}
+\label{structpicmicro}\index{picmicro@{picmicro}}
+
+
+Structure representing the various settings that are used in programming a specific model of the microcontroller.  
+
+
+\subsubsection*{Поля данных}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{structpicmicro_ae8700029f467a681147688cc88e06149}} 
+uint16\+\_\+t {\bfseries device\+\_\+id}
+\item 
+\mbox{\label{structpicmicro_a0f37d7b9239a5a0fc3c112b7df2a62a6}} 
+char {\bfseries name} [16]
+\item 
+\mbox{\label{structpicmicro_ad73ddb9cef8d94d3a55dff699ce5520d}} 
+size\+\_\+t {\bfseries program\+\_\+memory\+\_\+size}
+\item 
+\mbox{\label{structpicmicro_a5c61aaf430dfb8a2bdac4ce8bb64e02e}} 
+size\+\_\+t {\bfseries data\+\_\+memory\+\_\+size}
+\item 
+\mbox{\label{structpicmicro_a8a81dcc01cd968f2d126b700182fca0f}} 
+int {\bfseries program\+\_\+cycle\+\_\+time}
+\item 
+\mbox{\label{structpicmicro_aebd91b84262c63d20ff62a910966b742}} 
+int {\bfseries eeprom\+\_\+program\+\_\+cycle\+\_\+time}
+\item 
+\mbox{\label{structpicmicro_ae4ce8b1e22bacaf55366f2434c514fa7}} 
+int {\bfseries bulk\+\_\+erase\+\_\+cycle\+\_\+time}
+\item 
+\mbox{\label{structpicmicro_ac2dc164849fd9c753d99ab6819446cdb}} 
+uint8\+\_\+t {\bfseries load\+\_\+configuration\+\_\+cmd}
+\item 
+\mbox{\label{structpicmicro_af56cb3611129343a8712e56500d5f7d3}} 
+uint8\+\_\+t {\bfseries load\+\_\+data\+\_\+for\+\_\+program\+\_\+memory\+\_\+cmd}
+\item 
+\mbox{\label{structpicmicro_a69bdbb5f0a8bf00945ab4a3b34873f30}} 
+uint8\+\_\+t {\bfseries load\+\_\+data\+\_\+for\+\_\+data\+\_\+memory\+\_\+cmd}
+\item 
+\mbox{\label{structpicmicro_ad061f05ec8a20b291d39010a15056e61}} 
+uint8\+\_\+t {\bfseries read\+\_\+data\+\_\+from\+\_\+program\+\_\+memory\+\_\+cmd}
+\item 
+\mbox{\label{structpicmicro_a647c43e155726c5d60fa1de64225e41a}} 
+uint8\+\_\+t {\bfseries read\+\_\+data\+\_\+from\+\_\+data\+\_\+memory\+\_\+cmd}
+\item 
+\mbox{\label{structpicmicro_afc7f848a7e299a6f69bf06b8c832263e}} 
+uint8\+\_\+t {\bfseries increment\+\_\+address\+\_\+cmd}
+\item 
+\mbox{\label{structpicmicro_a7c4a28b78ad75fb79a65d07e5c17517d}} 
+uint8\+\_\+t {\bfseries begin\+\_\+erase\+\_\+programming\+\_\+cycle\+\_\+cmd}
+\item 
+\mbox{\label{structpicmicro_a83170f1168928c2f802f033eeed43610}} 
+uint8\+\_\+t {\bfseries begin\+\_\+programming\+\_\+only\+\_\+cycle\+\_\+cmd}
+\item 
+\mbox{\label{structpicmicro_ae44fcc9a55a11ae7a893b1fcb26a5c68}} 
+uint8\+\_\+t {\bfseries bulk\+\_\+erase\+\_\+program\+\_\+memory\+\_\+cmd}
+\item 
+\mbox{\label{structpicmicro_a046e1acb07283c54a3944d9350d594fc}} 
+uint8\+\_\+t {\bfseries bulk\+\_\+erase\+\_\+data\+\_\+memory\+\_\+cmd}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Подробное описание}
+Structure representing the various settings that are used in programming a specific model of the microcontroller. 
+
+Объявления и описания членов структуры находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ rpp.\+c}\end{DoxyCompactItemize}

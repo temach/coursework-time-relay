@@ -1,0 +1,548 @@
+\subsection{Файл rpp.\+c}
+\label{rpp_8c}\index{rpp.\+c@{rpp.\+c}}
+\subsubsection*{Структуры данных}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ picmemory}
+\begin{DoxyCompactList}\small\item\em Structure for the pic memory map. \end{DoxyCompactList}\item 
+struct \textbf{ picmicro}
+\begin{DoxyCompactList}\small\item\em Structure representing the various settings that are used in programming a specific model of the microcontroller. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Макросы}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{rpp_8c_ad3d8a3bd0c0b677acef144f2c2ef6d73}} 
+\#define {\bfseries \+\_\+\+B\+S\+D\+\_\+\+S\+O\+U\+R\+CE}
+\item 
+\mbox{\label{rpp_8c_a5ceef35fa2a177e2afe84595d17e9080}} 
+\#define {\bfseries P\+I\+C\+\_\+\+V\+DD}~(7)   /$\ast$ Power $\ast$/
+\item 
+\mbox{\label{rpp_8c_a34a50b925af2dc910c30930b064d829f}} 
+\#define {\bfseries P\+I\+C\+\_\+\+D\+A\+TA}~(8)    /$\ast$ Output $\ast$/
+\item 
+\mbox{\label{rpp_8c_ae8d43d893fd7f2bbe4a257f74ce031fd}} 
+\#define {\bfseries P\+I\+C\+\_\+\+C\+LK}~(9)    /$\ast$ Output $\ast$/
+\item 
+\mbox{\label{rpp_8c_ab0bf17244c5384684983604c84f78760}} 
+\#define {\bfseries P\+I\+C\+\_\+\+P\+GM}~(10)   /$\ast$ Output $\ast$/
+\item 
+\mbox{\label{rpp_8c_a33ce72ba760e86dde7110696ad0fd4ee}} 
+\#define {\bfseries P\+I\+C\+\_\+\+M\+C\+LR}~(20)    /$\ast$ Output $\ast$/
+\item 
+\mbox{\label{rpp_8c_a62249e384b997229a3e2ae74ade334e2}} 
+\#define {\bfseries D\+E\+L\+AY}~(40)   /$\ast$ microseconds $\ast$/
+\item 
+\mbox{\label{rpp_8c_acfa68c36d99623e2079a48f32eae3b25}} 
+\#define {\bfseries P\+I\+C\+M\+E\+M\+S\+I\+ZE}~(0x2100 + 0x80)
+\item 
+\mbox{\label{rpp_8c_a076409eed1e2fff413e6681db65b9a63}} 
+\#define {\bfseries P\+I\+C16\+F628A}~0x1060
+\item 
+\mbox{\label{rpp_8c_a4331b425be1a2ed4d42c797091d31ca0}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+IN}(g)~\textbf{ gpio\+\_\+input}(g)
+\item 
+\mbox{\label{rpp_8c_a94b8cd73d3399f3766dcb1b1a913ed24}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+O\+UT}(g)~\textbf{ gpio\+\_\+output}(g)
+\item 
+\mbox{\label{rpp_8c_adf627b9dcfcba2042a2052bef11fe771}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+S\+ET}(g)~\textbf{ gpio\+\_\+wr}(g, 0)
+\item 
+\mbox{\label{rpp_8c_ac174d27525caf4e7782859df2b719cc1}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+C\+LR}(g)~\textbf{ gpio\+\_\+wr}(g, 1)
+\end{DoxyCompactItemize}
+\subsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ picmemory} $\ast$ \textbf{ read\+\_\+inhx16} (char $\ast$infile, int debug)
+\begin{DoxyCompactList}\small\item\em Read a file in Intel H\+EX 16-\/bit format and return a pointer to the picmemory struct on success, or N\+U\+LL on error. \end{DoxyCompactList}\item 
+bool \textbf{ test\+\_\+bit} (uint32\+\_\+t n, int bit)
+\begin{DoxyCompactList}\small\item\em Tests if a bit is set. \end{DoxyCompactList}\item 
+void \textbf{ print\+\_\+hex} (uint32\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Prints a number in hex format to stdout. \end{DoxyCompactList}\item 
+int \textbf{ gpio\+\_\+rd} (long pin)
+\begin{DoxyCompactList}\small\item\em Reads input from G\+P\+IO pin. \end{DoxyCompactList}\item 
+volatile uint32\+\_\+t $\ast$ \textbf{ get\+\_\+data\+\_\+reg} (int pin)
+\begin{DoxyCompactList}\small\item\em Returns a pointer to the D\+A\+TA register for a particular pin. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ modify\+\_\+data} (uint32\+\_\+t data, int pin, int value)
+\begin{DoxyCompactList}\small\item\em Modifies an existing data value to toggle or clear a pin output. \end{DoxyCompactList}\item 
+void \textbf{ gpio\+\_\+wr} (int pin, int value)
+\begin{DoxyCompactList}\small\item\em Writes a value to the G\+P\+IO pin. \end{DoxyCompactList}\item 
+volatile uint32\+\_\+t $\ast$ \textbf{ get\+\_\+cfg\+\_\+reg} (int pin)
+\begin{DoxyCompactList}\small\item\em Returns the address for the C\+O\+N\+F\+IG register for a specific pin. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ modify\+\_\+cfg\+\_\+output} (uint32\+\_\+t cfg, int pin)
+\begin{DoxyCompactList}\small\item\em Modifies the current C\+O\+N\+F\+IG register value to change pin settings to O\+U\+T\+P\+UT. \end{DoxyCompactList}\item 
+void \textbf{ gpio\+\_\+output} (int pin)
+\begin{DoxyCompactList}\small\item\em Changes G\+P\+IO pin settings into O\+U\+T\+P\+UT mode. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ modify\+\_\+cfg\+\_\+input} (uint32\+\_\+t cfg, int pin)
+\begin{DoxyCompactList}\small\item\em Modifies the current C\+O\+N\+F\+IG register value to change pin settings to I\+N\+P\+UT. \end{DoxyCompactList}\item 
+void \textbf{ gpio\+\_\+input} (int pin)
+\begin{DoxyCompactList}\small\item\em Changes G\+P\+IO pin settings into I\+N\+P\+UT mode. \end{DoxyCompactList}\item 
+void \textbf{ setup\+\_\+io} ()
+\begin{DoxyCompactList}\small\item\em Set up a memory regions to access G\+P\+IO. \end{DoxyCompactList}\item 
+\mbox{\label{rpp_8c_a79fc3c94d1da4bd7016529442e1db11e}} 
+void \textbf{ close\+\_\+io} ()
+\begin{DoxyCompactList}\small\item\em Closes G\+P\+IO connections and releases memory regions. \end{DoxyCompactList}\item 
+void \textbf{ free\+\_\+picmemory} (struct \textbf{ picmemory} $\ast$$\ast$ppm)
+\begin{DoxyCompactList}\small\item\em Frees picmemory structure. \end{DoxyCompactList}\item 
+void \textbf{ pic\+\_\+send\+\_\+cmd} (uint8\+\_\+t cmd)
+\begin{DoxyCompactList}\small\item\em Send a 6-\/bit command to the P\+IC. \end{DoxyCompactList}\item 
+void \textbf{ pic\+\_\+load\+\_\+data} (uint16\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em Load 14-\/bit data to the P\+IC (start bit, 14-\/bit data, stop bit. \end{DoxyCompactList}\item 
+\mbox{\label{rpp_8c_ab326354268c119eb6879117ec0fddbe5}} 
+void \textbf{ pic\+\_\+enter\+\_\+lvp} ()
+\begin{DoxyCompactList}\small\item\em Put pic into low voltage programming mode. \end{DoxyCompactList}\item 
+\mbox{\label{rpp_8c_a2d9f12bfc0c24baabaf31b909ecf2e27}} 
+void \textbf{ pic\+\_\+exit\+\_\+lvp} ()
+\begin{DoxyCompactList}\small\item\em Exit from voltage programming mode and turn off the chip power. \end{DoxyCompactList}\item 
+void \textbf{ pic\+\_\+bulk\+\_\+erase} (const struct \textbf{ picmicro} $\ast$pic, int debug)
+\begin{DoxyCompactList}\small\item\em Bulk erase the chip. \end{DoxyCompactList}\item 
+void \textbf{ pic\+\_\+write} (const struct \textbf{ picmicro} $\ast$pic, char $\ast$infile, int debug)
+\begin{DoxyCompactList}\small\item\em Bulk erase the chip, and then write contents of the .hex file to the P\+IC. \end{DoxyCompactList}\item 
+\mbox{\label{rpp_8c_ae8605e2b78cd4a81b6c6b5c30cb7366a}} 
+void \textbf{ usage} (void)
+\begin{DoxyCompactList}\small\item\em Prints the usage guide for the program. \end{DoxyCompactList}\item 
+int \textbf{ main} (int argc, char $\ast$argv[$\,$])
+\begin{DoxyCompactList}\small\item\em Main entry function. \end{DoxyCompactList}\item 
+uint16\+\_\+t \textbf{ swap\+\_\+uint16} (uint16\+\_\+t val)
+\begin{DoxyCompactList}\small\item\em Swapps the lower and higher bytes of the unint16\+\_\+t. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Переменные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{rpp_8c_a3289f58977f0a569ee34d34d1406561d}} 
+uint32\+\_\+t {\bfseries C\+C\+U\+\_\+\+B\+A\+SE} = 0x01\+C20000ul
+\item 
+\mbox{\label{rpp_8c_a42161421b7792c915a16e00cf2895554}} 
+uint32\+\_\+t {\bfseries P\+I\+O\+\_\+\+O\+FS} = 0x00000800ul
+\item 
+\mbox{\label{rpp_8c_a49f2832a845e21b4641e9c1cde0bec40}} 
+uint32\+\_\+t {\bfseries P\+I\+O\+\_\+\+M\+A\+P\+\_\+\+L\+EN} = 0x2000
+\item 
+\mbox{\label{rpp_8c_ad3ff5c2ee4c4c1c84aa009c461eff654}} 
+uint32\+\_\+t {\bfseries P\+A\+\_\+\+C\+F\+G0\+\_\+\+O\+FS} = 0x00000000ul
+\item 
+\mbox{\label{rpp_8c_a90ad48d427b62cb1784057af1f12ba65}} 
+uint32\+\_\+t {\bfseries P\+A\+\_\+\+C\+F\+G1\+\_\+\+O\+FS} = 0x00000004ul
+\item 
+\mbox{\label{rpp_8c_a9fcf12c5a641077f188909888c87fd34}} 
+uint32\+\_\+t {\bfseries P\+A\+\_\+\+C\+F\+G2\+\_\+\+O\+FS} = 0x00000008ul
+\item 
+\mbox{\label{rpp_8c_aa9062c455e751e0152b14883dbf8ec3e}} 
+uint32\+\_\+t {\bfseries P\+A\+\_\+\+C\+F\+G3\+\_\+\+O\+FS} = 0x0000000\+Cul
+\item 
+\mbox{\label{rpp_8c_a7a604365700da4bdc3b6fc346481c227}} 
+uint32\+\_\+t {\bfseries P\+A\+\_\+\+D\+A\+T\+\_\+\+O\+FS} = 0x00000010ul
+\item 
+const struct \textbf{ picmicro} \textbf{ pic16f628a}
+\begin{DoxyCompactList}\small\item\em Instance of picmicro structure. \end{DoxyCompactList}\item 
+\mbox{\label{rpp_8c_a5c0b7212efd675a6004af9632bb18084}} 
+const struct \textbf{ picmicro} $\ast$ {\bfseries piclist} [$\,$] = \{\&\textbf{ pic16f628a}, N\+U\+LL\}
+\item 
+int \textbf{ mem\+\_\+fd}
+\begin{DoxyCompactList}\small\item\em Memory file descriptor. \end{DoxyCompactList}\item 
+\mbox{\label{rpp_8c_aebda620535a14d07f0a5e077e9fcdac9}} 
+volatile char $\ast$ \textbf{ gpio}
+\begin{DoxyCompactList}\small\item\em Pointer to the base adress of G\+P\+IO module in the Allwinner H3 processor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Функции}
+\mbox{\label{rpp_8c_ae2a5b94e0e38695434b74a82f286f06b}} 
+\index{rpp.\+c@{rpp.\+c}!free\+\_\+picmemory@{free\+\_\+picmemory}}
+\index{free\+\_\+picmemory@{free\+\_\+picmemory}!rpp.\+c@{rpp.\+c}}
+\paragraph{free\+\_\+picmemory()}
+{\footnotesize\ttfamily void free\+\_\+picmemory (\begin{DoxyParamCaption}\item[{struct \textbf{ picmemory} $\ast$$\ast$}]{ppm }\end{DoxyParamCaption})}
+
+
+
+Frees picmemory structure. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em ppm} & structure to free \\
+\hline
+\end{DoxyParams}
+\mbox{\label{rpp_8c_af21f1313d2026ae1c24ed7cc567cbef9}} 
+\index{rpp.\+c@{rpp.\+c}!get\+\_\+cfg\+\_\+reg@{get\+\_\+cfg\+\_\+reg}}
+\index{get\+\_\+cfg\+\_\+reg@{get\+\_\+cfg\+\_\+reg}!rpp.\+c@{rpp.\+c}}
+\paragraph{get\+\_\+cfg\+\_\+reg()}
+{\footnotesize\ttfamily volatile uint32\+\_\+t$\ast$ get\+\_\+cfg\+\_\+reg (\begin{DoxyParamCaption}\item[{int}]{pin }\end{DoxyParamCaption})}
+
+
+
+Returns the address for the C\+O\+N\+F\+IG register for a specific pin. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em pin} & Number of the pin.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Pointer to the C\+O\+N\+F\+IG register for this particular pin. 
+\end{DoxyReturn}
+\mbox{\label{rpp_8c_a93d7da45bda8e817ba21c4165863a3bd}} 
+\index{rpp.\+c@{rpp.\+c}!get\+\_\+data\+\_\+reg@{get\+\_\+data\+\_\+reg}}
+\index{get\+\_\+data\+\_\+reg@{get\+\_\+data\+\_\+reg}!rpp.\+c@{rpp.\+c}}
+\paragraph{get\+\_\+data\+\_\+reg()}
+{\footnotesize\ttfamily volatile uint32\+\_\+t$\ast$ get\+\_\+data\+\_\+reg (\begin{DoxyParamCaption}\item[{int}]{pin }\end{DoxyParamCaption})}
+
+
+
+Returns a pointer to the D\+A\+TA register for a particular pin. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em pin} & Pin to get the register address for.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Pointer to D\+A\+TA register for the pin. 
+\end{DoxyReturn}
+\mbox{\label{rpp_8c_a7921f1e1b71c9cc703777cd08d4e1108}} 
+\index{rpp.\+c@{rpp.\+c}!gpio\+\_\+input@{gpio\+\_\+input}}
+\index{gpio\+\_\+input@{gpio\+\_\+input}!rpp.\+c@{rpp.\+c}}
+\paragraph{gpio\+\_\+input()}
+{\footnotesize\ttfamily void gpio\+\_\+input (\begin{DoxyParamCaption}\item[{int}]{pin }\end{DoxyParamCaption})}
+
+
+
+Changes G\+P\+IO pin settings into I\+N\+P\+UT mode. 
+
+Pin is one of P\+A7, P\+A8, P\+A9, P\+A10, P\+A20
+
+
+\begin{DoxyParams}{Аргументы}
+{\em pin} & Number of the pin. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{rpp_8c_a16ceea7a1891ead832a85968c75e9d81}} 
+\index{rpp.\+c@{rpp.\+c}!gpio\+\_\+output@{gpio\+\_\+output}}
+\index{gpio\+\_\+output@{gpio\+\_\+output}!rpp.\+c@{rpp.\+c}}
+\paragraph{gpio\+\_\+output()}
+{\footnotesize\ttfamily void gpio\+\_\+output (\begin{DoxyParamCaption}\item[{int}]{pin }\end{DoxyParamCaption})}
+
+
+
+Changes G\+P\+IO pin settings into O\+U\+T\+P\+UT mode. 
+
+Pin is one of P\+A7, P\+A8, P\+A9, P\+A10, P\+A20
+
+
+\begin{DoxyParams}{Аргументы}
+{\em pin} & Number of the pin. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{rpp_8c_ad6984e49f7d3f20a75df42de600b0ece}} 
+\index{rpp.\+c@{rpp.\+c}!gpio\+\_\+rd@{gpio\+\_\+rd}}
+\index{gpio\+\_\+rd@{gpio\+\_\+rd}!rpp.\+c@{rpp.\+c}}
+\paragraph{gpio\+\_\+rd()}
+{\footnotesize\ttfamily int gpio\+\_\+rd (\begin{DoxyParamCaption}\item[{long}]{pin }\end{DoxyParamCaption})}
+
+
+
+Reads input from G\+P\+IO pin. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em pin} & To read voltage from.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+0 or 1 
+\end{DoxyReturn}
+\mbox{\label{rpp_8c_ad9409dcfbc63a14f06db63ec39f0d494}} 
+\index{rpp.\+c@{rpp.\+c}!gpio\+\_\+wr@{gpio\+\_\+wr}}
+\index{gpio\+\_\+wr@{gpio\+\_\+wr}!rpp.\+c@{rpp.\+c}}
+\paragraph{gpio\+\_\+wr()}
+{\footnotesize\ttfamily void gpio\+\_\+wr (\begin{DoxyParamCaption}\item[{int}]{pin,  }\item[{int}]{value }\end{DoxyParamCaption})}
+
+
+
+Writes a value to the G\+P\+IO pin. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em pin} & Number of the pin. \\
+\hline
+{\em value} & 0 or 1 \\
+\hline
+\end{DoxyParams}
+\mbox{\label{rpp_8c_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{rpp.\+c@{rpp.\+c}!main@{main}}
+\index{main@{main}!rpp.\+c@{rpp.\+c}}
+\paragraph{main()}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv[$\,$] }\end{DoxyParamCaption})}
+
+
+
+Main entry function. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em argc} & \\
+\hline
+{\em argv\mbox{[}$\,$\mbox{]}} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+
+\end{DoxyReturn}
+\mbox{\label{rpp_8c_a549a008b0623d0cb7f1006d07a428a93}} 
+\index{rpp.\+c@{rpp.\+c}!modify\+\_\+cfg\+\_\+input@{modify\+\_\+cfg\+\_\+input}}
+\index{modify\+\_\+cfg\+\_\+input@{modify\+\_\+cfg\+\_\+input}!rpp.\+c@{rpp.\+c}}
+\paragraph{modify\+\_\+cfg\+\_\+input()}
+{\footnotesize\ttfamily uint32\+\_\+t modify\+\_\+cfg\+\_\+input (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{cfg,  }\item[{int}]{pin }\end{DoxyParamCaption})}
+
+
+
+Modifies the current C\+O\+N\+F\+IG register value to change pin settings to I\+N\+P\+UT. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em cfg} & Current cfg register value. \\
+\hline
+{\em pin} & Number of the pin.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+New value that should be writtten to the config register for this pin. 
+\end{DoxyReturn}
+\mbox{\label{rpp_8c_aaec858ef897365ec6491cc313442207d}} 
+\index{rpp.\+c@{rpp.\+c}!modify\+\_\+cfg\+\_\+output@{modify\+\_\+cfg\+\_\+output}}
+\index{modify\+\_\+cfg\+\_\+output@{modify\+\_\+cfg\+\_\+output}!rpp.\+c@{rpp.\+c}}
+\paragraph{modify\+\_\+cfg\+\_\+output()}
+{\footnotesize\ttfamily uint32\+\_\+t modify\+\_\+cfg\+\_\+output (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{cfg,  }\item[{int}]{pin }\end{DoxyParamCaption})}
+
+
+
+Modifies the current C\+O\+N\+F\+IG register value to change pin settings to O\+U\+T\+P\+UT. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em cfg} & Current cfg register value. \\
+\hline
+{\em pin} & Number of the pin.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+New value that should be writtten to the config register for this pin. 
+\end{DoxyReturn}
+\mbox{\label{rpp_8c_ad36f1a116fa45a0beb85f20105a4a3e4}} 
+\index{rpp.\+c@{rpp.\+c}!modify\+\_\+data@{modify\+\_\+data}}
+\index{modify\+\_\+data@{modify\+\_\+data}!rpp.\+c@{rpp.\+c}}
+\paragraph{modify\+\_\+data()}
+{\footnotesize\ttfamily uint32\+\_\+t modify\+\_\+data (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{data,  }\item[{int}]{pin,  }\item[{int}]{value }\end{DoxyParamCaption})}
+
+
+
+Modifies an existing data value to toggle or clear a pin output. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em data} & Existing D\+A\+TA register value. \\
+\hline
+{\em pin} & Pin number to modify. \\
+\hline
+{\em value} & 0 or 1\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+new value that should be written to the register. 
+\end{DoxyReturn}
+\mbox{\label{rpp_8c_a07573035e6d048409e23828ffb691f9e}} 
+\index{rpp.\+c@{rpp.\+c}!pic\+\_\+bulk\+\_\+erase@{pic\+\_\+bulk\+\_\+erase}}
+\index{pic\+\_\+bulk\+\_\+erase@{pic\+\_\+bulk\+\_\+erase}!rpp.\+c@{rpp.\+c}}
+\paragraph{pic\+\_\+bulk\+\_\+erase()}
+{\footnotesize\ttfamily void pic\+\_\+bulk\+\_\+erase (\begin{DoxyParamCaption}\item[{const struct \textbf{ picmicro} $\ast$}]{pic,  }\item[{int}]{debug }\end{DoxyParamCaption})}
+
+
+
+Bulk erase the chip. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em pic} & Settings to use while erasing. \\
+\hline
+{\em debug} & 1 if you want debug info printed. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{rpp_8c_a9eabf3d3bcbc07384e11819c3130e61c}} 
+\index{rpp.\+c@{rpp.\+c}!pic\+\_\+load\+\_\+data@{pic\+\_\+load\+\_\+data}}
+\index{pic\+\_\+load\+\_\+data@{pic\+\_\+load\+\_\+data}!rpp.\+c@{rpp.\+c}}
+\paragraph{pic\+\_\+load\+\_\+data()}
+{\footnotesize\ttfamily void pic\+\_\+load\+\_\+data (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{data }\end{DoxyParamCaption})}
+
+
+
+Load 14-\/bit data to the P\+IC (start bit, 14-\/bit data, stop bit. 
+
+lsb first)
+
+
+\begin{DoxyParams}{Аргументы}
+{\em data} & Data to be loaded \\
+\hline
+\end{DoxyParams}
+\mbox{\label{rpp_8c_a8626a982ada1622a98dfb952c037ee2b}} 
+\index{rpp.\+c@{rpp.\+c}!pic\+\_\+send\+\_\+cmd@{pic\+\_\+send\+\_\+cmd}}
+\index{pic\+\_\+send\+\_\+cmd@{pic\+\_\+send\+\_\+cmd}!rpp.\+c@{rpp.\+c}}
+\paragraph{pic\+\_\+send\+\_\+cmd()}
+{\footnotesize\ttfamily void pic\+\_\+send\+\_\+cmd (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{cmd }\end{DoxyParamCaption})}
+
+
+
+Send a 6-\/bit command to the P\+IC. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em cmd} & Hex code of the command \\
+\hline
+\end{DoxyParams}
+\mbox{\label{rpp_8c_a20d9e85aa5b350b3f8b223dfc2f9f305}} 
+\index{rpp.\+c@{rpp.\+c}!pic\+\_\+write@{pic\+\_\+write}}
+\index{pic\+\_\+write@{pic\+\_\+write}!rpp.\+c@{rpp.\+c}}
+\paragraph{pic\+\_\+write()}
+{\footnotesize\ttfamily void pic\+\_\+write (\begin{DoxyParamCaption}\item[{const struct \textbf{ picmicro} $\ast$}]{pic,  }\item[{char $\ast$}]{infile,  }\item[{int}]{debug }\end{DoxyParamCaption})}
+
+
+
+Bulk erase the chip, and then write contents of the .hex file to the P\+IC. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em pic} & Settings for the pic to be programmed. \\
+\hline
+{\em infile} & input file name \\
+\hline
+{\em debug} & 1 if you want debug info printed \\
+\hline
+\end{DoxyParams}
+\mbox{\label{rpp_8c_ae713a57ce9b39cbcca8477ab0af92f54}} 
+\index{rpp.\+c@{rpp.\+c}!print\+\_\+hex@{print\+\_\+hex}}
+\index{print\+\_\+hex@{print\+\_\+hex}!rpp.\+c@{rpp.\+c}}
+\paragraph{print\+\_\+hex()}
+{\footnotesize\ttfamily void print\+\_\+hex (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{n }\end{DoxyParamCaption})}
+
+
+
+Prints a number in hex format to stdout. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em n} & Number to print. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{rpp_8c_a86e901dbbefc03c63ff970b2d6a336c0}} 
+\index{rpp.\+c@{rpp.\+c}!read\+\_\+inhx16@{read\+\_\+inhx16}}
+\index{read\+\_\+inhx16@{read\+\_\+inhx16}!rpp.\+c@{rpp.\+c}}
+\paragraph{read\+\_\+inhx16()}
+{\footnotesize\ttfamily struct \textbf{ picmemory} $\ast$ read\+\_\+inhx16 (\begin{DoxyParamCaption}\item[{char $\ast$}]{infile,  }\item[{int}]{debug }\end{DoxyParamCaption})}
+
+
+
+Read a file in Intel H\+EX 16-\/bit format and return a pointer to the picmemory struct on success, or N\+U\+LL on error. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em infile} & Input file name \\
+\hline
+{\em debug} & 1 if you want debug info printed\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Structure for the pic memory map 
+\end{DoxyReturn}
+\mbox{\label{rpp_8c_a085b31aea2b7dcfd097e79fba95d402d}} 
+\index{rpp.\+c@{rpp.\+c}!setup\+\_\+io@{setup\+\_\+io}}
+\index{setup\+\_\+io@{setup\+\_\+io}!rpp.\+c@{rpp.\+c}}
+\paragraph{setup\+\_\+io()}
+{\footnotesize\ttfamily void setup\+\_\+io (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Set up a memory regions to access G\+P\+IO. 
+
+Memory map Allwinner H3 processor registers. \mbox{\label{rpp_8c_a05184e440f8024c3963ca2110a4adcf5}} 
+\index{rpp.\+c@{rpp.\+c}!swap\+\_\+uint16@{swap\+\_\+uint16}}
+\index{swap\+\_\+uint16@{swap\+\_\+uint16}!rpp.\+c@{rpp.\+c}}
+\paragraph{swap\+\_\+uint16()}
+{\footnotesize\ttfamily uint16\+\_\+t swap\+\_\+uint16 (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{val }\end{DoxyParamCaption})}
+
+
+
+Swapps the lower and higher bytes of the unint16\+\_\+t. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em val} & Int16 to swap\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Swapped value 
+\end{DoxyReturn}
+\mbox{\label{rpp_8c_afab0348d34b69cb01301ecd15019aa9b}} 
+\index{rpp.\+c@{rpp.\+c}!test\+\_\+bit@{test\+\_\+bit}}
+\index{test\+\_\+bit@{test\+\_\+bit}!rpp.\+c@{rpp.\+c}}
+\paragraph{test\+\_\+bit()}
+{\footnotesize\ttfamily bool test\+\_\+bit (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{n,  }\item[{int}]{bit }\end{DoxyParamCaption})}
+
+
+
+Tests if a bit is set. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em n} & Number to test in \\
+\hline
+{\em bit} & Number of the bit to test\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+True -\/ bit is set. False -\/ bit is cleared. 
+\end{DoxyReturn}
+
+
+\subsubsection{Переменные}
+\mbox{\label{rpp_8c_ae2f168096b42ceb6288a92145738928f}} 
+\index{rpp.\+c@{rpp.\+c}!mem\+\_\+fd@{mem\+\_\+fd}}
+\index{mem\+\_\+fd@{mem\+\_\+fd}!rpp.\+c@{rpp.\+c}}
+\paragraph{mem\+\_\+fd}
+{\footnotesize\ttfamily int mem\+\_\+fd}
+
+
+
+Memory file descriptor. 
+
+Used to memory map Alwinner H3 processor registers. \mbox{\label{rpp_8c_af141ce476253aac60e9b860af70fd6ff}} 
+\index{rpp.\+c@{rpp.\+c}!pic16f628a@{pic16f628a}}
+\index{pic16f628a@{pic16f628a}!rpp.\+c@{rpp.\+c}}
+\paragraph{pic16f628a}
+{\footnotesize\ttfamily const struct \textbf{ picmicro} pic16f628a}
+
+{\bfseries Инициализатор}
+\begin{DoxyCode}
+= \{
+    
+    .device\_id =                          PIC16F628A,
+    .name =                               \textcolor{stringliteral}{"pic16f628a"},
+    .program\_memory\_size =                0x800,
+    .data\_memory\_size =                   128,
+    
+    .program\_cycle\_time =                 4000,
+    .eeprom\_program\_cycle\_time =          6000,
+    .bulk\_erase\_cycle\_time =              6000,
+    
+    .load\_configuration\_cmd =             0x00,
+    .load\_data\_for\_program\_memory\_cmd =   0x02,
+    .load\_data\_for\_data\_memory\_cmd =      0x03,
+    .read\_data\_from\_program\_memory\_cmd =  0x04,
+    .read\_data\_from\_data\_memory\_cmd =     0x05,
+    .increment\_address\_cmd =              0x06,
+    .begin\_erase\_programming\_cycle\_cmd =  0xFF,
+    .begin\_programming\_only\_cycle\_cmd =   0x08,
+    .bulk\_erase\_program\_memory\_cmd =      0x09,
+    .bulk\_erase\_data\_memory\_cmd =         0x0B
+\}
+\end{DoxyCode}
+
+
+Instance of picmicro structure. 
+
+Contains constants for P\+I\+C16f628a/627a/648a 
