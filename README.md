@@ -5,7 +5,9 @@ Eще много примеров ТЗ, это лучшие проекты пр�
 
 Раньше в шаблоне использовался пакет eskd (не путать с eskdx).  На данный момент, поскольку пакет eskd был офигенно сложен для понимания (но, это все-таки хороший пакет), поэтому на его основе сделан пакет twoeskd.cls в котором выброшенно много функций eskd, но в нем все более менее понятно.
 
-
+Actually the best way is to use the docker image: https://github.com/senior-sigan/docker-latex
+The repository has instructions. What worked best was to add docker-latex/bin directory to PATH and thus always run the pdflatex from docker container.
+The best part is that it has PSCyr and latex-cyrillic already installed.
 
 На всякий случай инструкции по установке пакета eskd:
 
