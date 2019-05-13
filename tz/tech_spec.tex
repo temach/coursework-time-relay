@@ -5,6 +5,9 @@ encoding=utf8
 
 % \usepackage{eskdappsheet}
 
+% apparently its better lo load PSCyr before babel and inputenc
+\usepackage{pscyr}
+
 % Packages required by doxygen
 \usepackage[export]{adjustbox} % also loads graphicx
 \usepackage{graphicx}
@@ -16,7 +19,6 @@ encoding=utf8
 % NLS support packages
 \usepackage[T2A]{fontenc}
 \usepackage[russian]{babel}
-\usepackage{pscyr}
 
 % Font selection
 \usepackage{courier}
@@ -63,20 +65,23 @@ encoding=utf8
 % Custom commands
 % configure eskd
 \titleTop{
-\textbf{\Large ПРАВИТЕЛЬСТВО РОССИЙСКОЙ ФЕДЕРАЦИИ \\
+\textbf{
+{\normalsize Приложение А} \\
+\Large ПРАВИТЕЛЬСТВО РОССИЙСКОЙ ФЕДЕРАЦИИ \\
 НАЦИОНАЛЬНЫЙ ИССЛЕДОВАТЕЛЬСКИЙ УНИВЕРСИТЕТ \\
 «ВЫСШАЯ ШКОЛА ЭКОНОМИКИ» } \\
 \vspace*{0.2cm}
-{\small Факультет компьютерных наук \\
-Департамент программнoй инженерии \\
+{\large Факультет компьютерных наук \\
+Департамент программной инженерии \\
 }
 }
 \titleDesignedBy{Студент группы БПИ 151 НИУ ВШЭ}{Абрамов А.M.}
 \titleAgreedBy{%
 \parbox[t]{7cm} {
-Доцент департамента \\
-програмной инженерии факультета \\
-компьютерных наук, канд. техн. наук. \\
+Научный руководитель \\
+доцент департамента \\
+программной инженерии \\
+канд. техн. наук. \\
 }}{С. Л. Макаров}
 \titleApprovedBy{
 \parbox[t]{10cm} {
