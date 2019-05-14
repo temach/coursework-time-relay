@@ -16,6 +16,7 @@ encoding=utf8
 \PassOptionsToPackage{warn}{textcomp}
 \usepackage{textcomp}
 \usepackage[nointegrals]{wasysym}
+\usepackage{hyperref}
 
 % NLS support packages
 \usepackage[T2A]{fontenc}
@@ -97,6 +98,13 @@ encoding=utf8
   \setlength{\parsep}{0pt}}{\end{enumerate}
 }
 
+\newenvironment{my_itemize}{
+\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}{\end{itemize}
+}
+
 
 % Custom commands
 % configure eskd
@@ -159,8 +167,21 @@ encoding=utf8
 
 % --- add my custom headers ---
 \newpage
+\section{Терминология}
+\input{terminology}
+
+\newpage
 \section{Введение}
 \input{introduction}
+
+\newpage
+\section{Глава 1. Анализ устройств автоматизации}
+\input{first}
+
+\newpage
+\section{Глава 2. Описание выбранных методов}
+\input{second}
+
 
 \newpage
 \section{Назначение разработки}
@@ -177,10 +198,6 @@ encoding=utf8
 \newpage
 \section{Источники, используемые при разработке}
 \input{used_literature}
-
-\newpage
-\section{Приложение 1. Терминология}
-\input{terminology}
 
 % Index
 \newpage
