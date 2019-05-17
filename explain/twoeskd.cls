@@ -382,7 +382,7 @@ format (V.Fyodorov@tltsu.ru)]
         {\bfseries\Large \eskd@title@iv}\mbox{}\\[3mm]
         {\large\eskd@title@subiv}\\[3mm]
         {\large\eskd@typeid}\\[3mm]
-        {\large\eskd@totalpages}\\[3mm]
+        % {\large\eskd@totalpages}\\[3mm]
     \end{center}
     \vfill
     \begin{center}
@@ -407,7 +407,7 @@ format (V.Fyodorov@tltsu.ru)]
   \set@eskd@bottom{15mm}
   \eskd@maketitle
   \set@eskd@bottom{55mm}
-  {\large\eskd@totalpages}\\[3mm]
+  % {\large\eskd@totalpages}\\[3mm]
   % \eskd@makesecond
 
   \pagestyle{myhorizontaltable}
