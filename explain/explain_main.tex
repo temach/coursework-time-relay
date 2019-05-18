@@ -166,6 +166,8 @@ encoding=utf8
 % \pagenumbering{arabic}
 
 % --- add my custom headers ---
+\setcounter{secnumdepth}{0}
+
 \newpage
 \section{Терминология}
 \input{terminology}
@@ -173,6 +175,8 @@ encoding=utf8
 \newpage
 \section{Введение}
 \input{introduction}
+
+\setcounter{secnumdepth}{3}
 
 \newpage
 \section{Глава 1. Анализ устройств автоматизации}
@@ -182,18 +186,13 @@ encoding=utf8
 \section{Глава 2. Описание выбранных методов}
 \input{second}
 
+\newpage
+\section{Глава 3. Описание реализации}
+\input{third}
 
 \newpage
-\section{Назначение разработки}
-\input{purpose_of_development}
-
-\newpage
-\section{Технические характеристики}
-\input{technical_parameters}
-
-\newpage
-\section{Технико-экономические показатели}
-\input{technical_economical_factors}
+\section{Заключение}
+\input{results}
 
 \newpage
 \section{Источники, используемые при разработке}
