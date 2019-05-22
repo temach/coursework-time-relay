@@ -256,7 +256,7 @@ format (V.Fyodorov@tltsu.ru)]
 }
 \newcommand{\titleSignature}[1]{\renewcommand{\eskd@title@vi}{#1}}
 
-\newcommand{\eskd@title@bottom}{\eskdyear}
+\newcommand{\eskd@title@bottom}{Москва \eskdyear}
 \newcommand{\titleBottom}[1]{\renewcommand{\eskd@title@bottom}{#1}}
 
 \newcommand{\eskd@title@iii@right@position}{}
