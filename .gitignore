@@ -7,6 +7,11 @@
 *.nav
 *.vrb
 
+*.out
+
+# backups from anu aspell
+*.bak
+
 # But not these files...
 !.gitignore
 !*.tex
