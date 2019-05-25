@@ -241,18 +241,20 @@ format (V.Fyodorov@tltsu.ru)]
 \newcommand{\eskd@title@subiv}{}
 \newcommand{\titleSubname}[1]{\renewcommand{\eskd@title@subiv}{#1}}
 
-% Will put your work type id ("RU.17701729.509000 ТЗ 01-1-ЛУ") into all tables and on title page
+% Will put your work type id ("RU.17701729.509000 ТЗ 01-1") into all tables and on title page
 \newcommand{\eskd@typeid}{}
 \newcommand{\workTypeId}[1]{\renewcommand{\eskd@typeid}{#1}}
+% Will add suffix ("RU.17701729.509000 ТЗ 01-1-ЛУ") to first pages
+\newcommand{\eskd@typeid@confirmpage}{\eskd@typeid -ЛУ}
 
 \newcommand{\eskd@title@vi}{
 ЛИСТ УТВЕРЖДЕНИЯ \\%
 \medskip%
-\eskd@typeid
+\eskd@typeid@confirmpage
 }
 \newcommand{\titleSignature}[1]{\renewcommand{\eskd@title@vi}{#1}}
 
-\newcommand{\eskd@title@bottom}{\eskdyear}
+\newcommand{\eskd@title@bottom}{Москва \eskdyear}
 \newcommand{\titleBottom}[1]{\renewcommand{\eskd@title@bottom}{#1}}
 
 \newcommand{\eskd@title@iii@right@position}{}
@@ -335,8 +337,8 @@ format (V.Fyodorov@tltsu.ru)]
     % kind of a hack to make the text box
     \newsavebox{\eskd@confirmed}
     \savebox{\eskd@confirmed}{\pbox{9cm}{
-    УТВЕРЖДЕНО \\
-    \eskd@typeid \\
+    УТВЕРЖДЕН \\
+    \eskd@typeid@confirmpage \\
     }}
   \fancypagestyle{mysecond}{%
     \fancyhf{}
