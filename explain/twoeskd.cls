@@ -157,12 +157,12 @@ format (V.Fyodorov@tltsu.ru)]
   \fancyhf{}
   \fancyfoot[L]{%
     \unitlength 1mm%
-    \begin{picture}(0,0)(-10,20)
-          \begin{picture}(0,0)
-            \usebox{\eskd@horizontal}
-            \put(28,8){\makebox(0,0)[r]{\usebox{\eskd@myhoriz@signature}}}
-          \end{picture}%
-    \end{picture}
+    % \begin{picture}(0,0)(-10,20)
+    %       \begin{picture}(0,0)
+    %         \usebox{\eskd@horizontal}
+    %         % \put(28,8){\makebox(0,0)[r]{\usebox{\eskd@myhoriz@signature}}}
+    %       \end{picture}%
+    % \end{picture}
     }
   \fancyhead[C]{ \textbf{\large \thepage} \\ }
   \fancyhead[L]{ \eskd@shortfulltitle }
@@ -181,14 +181,14 @@ format (V.Fyodorov@tltsu.ru)]
   \fancyhf{}
   \fancyhead[L]{%
     \unitlength 1mm%
-    \begin{picture}(0,0)(-3,-15)
-      \put(0,-\eskdheight){\usebox{\eskd@vertical}}
-      \put(0,-\eskdheight){
-            \begin{rotate}{90}%
-            % \put(20,8){\makebox(0,0){\usebox{\eskd@myvert@signature}}}
-            \end{rotate}
-      }
-    \end{picture}
+    % \begin{picture}(0,0)(-3,-15)
+    %   \put(0,-\eskdheight){\usebox{\eskd@vertical}}
+    %   \put(0,-\eskdheight){
+    %         \begin{rotate}{90}%
+    %         % \put(20,8){\makebox(0,0){\usebox{\eskd@myvert@signature}}}
+    %         \end{rotate}
+    %   }
+    % \end{picture}
     }
   \renewcommand{\headrulewidth}{0pt}
   \renewcommand{\footrulewidth}{0pt}}
@@ -394,8 +394,8 @@ format (V.Fyodorov@tltsu.ru)]
 \RequirePackage{etoolbox}
 \AfterEndPreamble{%
 
-  \make@eskd@vertical
-  \make@eskd@horizontal
+  % \make@eskd@vertical
+  % \make@eskd@horizontal
 
   \make@eskd@myvert@style
   \make@eskd@myhoriz@style
